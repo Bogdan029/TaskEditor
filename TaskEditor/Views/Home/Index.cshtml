@@ -1,0 +1,44 @@
+﻿@using TaskEditor.Models;
+@model  IEnumerable<Task>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <h3>Task List</h3>
+    <table class="table table-bordered table-hover">
+        <tr style="font-weight:bold;font-size:16px">
+            <td ><p>Name of Task </p></td>
+            <td><p>Description</p></td>
+            <td></td>
+        </tr>
+        @* @foreach (var b in ViewBag.Books) // Model для строгої типізації*@
+        @foreach (var t in Model)
+
+        {
+            <tr>
+                <td><p>@t.Name</p></td>
+                <td><p>@t.Description</p></td>
+                <td style="width:300px">
+
+                    @*<a href="/Home/Buy/@t.Id">Buy</a>  <a href="/Home/Delete/@t.Id">Delete</a>  <a href="/Home/Edit/@t.Id">Edit</a>*@
+
+                    <div style="display: inline;padding:5px; margin-left:10%">
+                        <a href="/Home/Delete/@t.Id" class="btn btn-info">Delete</a>
+                    </div>
+                    <div style="display: inline;padding:5px">
+                        <a href="/Home/Edit/@t.Id" class="btn btn-info">Edit</a>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<br/>
+<div>
+    <a href="/Home/Create" class="btn btn-success">Create new task</a>
+</div>
+
+
+@*@Html.ActionLink("LogOut", "LogOut", "Home")*@
