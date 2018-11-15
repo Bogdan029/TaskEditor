@@ -27,7 +27,6 @@ namespace TaskEditor.Controllers
                     user = db.Users.FirstOrDefault(u => u.Email == model.Login && u.Password == model.Password);
                 }
 
-
                 if (user != null)
                 {
                     FormsAuthentication.SetAuthCookie(model.Login, true);
